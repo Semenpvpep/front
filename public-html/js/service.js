@@ -2,13 +2,13 @@ const serviceWrap = document.getElementById("service-wrap");
 
 async function getData() {
     try {
-        const response = await fetch("http://localhost:8080/departments");
+        const response = await fetch("https://back-06ez.onrender.com/departments");
 
         if (response.ok) {
             const deps = await response.json();
             let strs = [];
             for (let dep of deps) {
-                let innerResp = await fetch(`http://localhost:8080/service-items?depId=${dep.id}`);
+                let innerResp = await fetch(`https://back-06ez.onrender.com/service-items?depId=${dep.id}`);
                 let services = await innerResp.json();
 
                 let innerStrs = services.map((service) => {

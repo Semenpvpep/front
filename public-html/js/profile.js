@@ -5,7 +5,7 @@ async function getData() {
     try {
         let user = JSON.parse(localStorage.getItem("user"));
         username.textContent = user.username;
-        const response = await fetch(`http://localhost:8080/appointments?userId=${user.userId}`, {
+        const response = await fetch(`https://back-06ez.onrender.com/appointments?userId=${user.userId}`, {
             headers: {
                 "Authorization": "Basic " + user.authToken
             }

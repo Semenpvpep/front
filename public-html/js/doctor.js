@@ -2,7 +2,7 @@ const doctorsContainer = document.getElementById("doctors-container");
 
 async function getData() {
     try {
-        const response = await fetch("http://localhost:8080/doctors");
+        const response = await fetch("https://back-06ez.onrender.com/doctors");
     
         if (response.ok) {
             const doctors = await response.json();

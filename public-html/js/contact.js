@@ -4,7 +4,7 @@ const inputDoctorName = document.getElementById("inputDoctorName");
 const inputDatetime = document.getElementById("inputDatetime");
 
 async function loadDeps() {
-    let response = await fetch("http://localhost:8080/departments");
+    let response = await fetch("https://back-06ez.onrender.com/departments");
     let deps = await response.json();
 
     let strs = [];
@@ -17,7 +17,7 @@ async function loadDeps() {
 }
 
 async function updateOptions(depId) {
-    let response = await fetch(`http://localhost:8080/service-items?depId=${depId}`);
+    let response = await fetch(`https://back-06ez.onrender.com/service-items?depId=${depId}`);
     let services = await response.json();
 
     let strs = [];
@@ -28,7 +28,7 @@ async function updateOptions(depId) {
 
     inputServiceItem.innerHTML = strs.join('');
 
-    response = await fetch(`http://localhost:8080/doctors?depId=${depId}`);
+    response = await fetch(`https://back-06ez.onrender.com/doctors?depId=${depId}`);
     let doctors = await response.json();
 
     strs = [];
@@ -73,7 +73,7 @@ async function sendData() {
     console.log(requestBody);
 
     try {
-        const response = await fetch("http://localhost:8080/appointments", {
+        const response = await fetch("https://back-06ez.onrender.com/appointments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
